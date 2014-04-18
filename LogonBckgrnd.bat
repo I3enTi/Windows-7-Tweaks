@@ -7,21 +7,18 @@ set b_folder=%WINDIR%\System32\oobe\info\backgrounds
 IF EXIST %b_folder% (
 
 start %b_folder%
-@echo on  ECHO: exists 
+@echo Pathway exists 
 @echo off
-
+ ECHO You already have this pathway, but just in case: \nCOPY YOUR BACKGROUND JPEG IMAGE HERE AND NAME IT 'backgroundDefault'.>"%WINDIR%\System32\oobe\info\backgrounds\Instructions.txt"
 ) ELSE (
 
  md %b_folder% 
  start %b_folder% 
-@echo on ECHO: does NOT exist; made 
+@echo Pathway does NOT exist; has been made 
+@echo off
+ ECHO COPY YOUR BACKGROUND JPEG IMAGE HERE AND NAME IT 'backgroundDefault'.>"%WINDIR%\System32\oobe\info\backgrounds\Instructions.txt"
  )
  
-ECHO: COPY YOUR (JPEG)BACKGROUND IMAGE HERE and NAME IT "backgroundDefault"
-pause
-
-@echo off
-
 :implementChange
 set /p Change=Implement Background Change [y/n]?:
 if %Change%==y logoff
